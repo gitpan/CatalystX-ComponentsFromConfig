@@ -29,6 +29,7 @@ my %WriteMakefileArgs = (
   "NAME" => "CatalystX::ComponentsFromConfig",
   "PREREQ_PM" => {
     "Catalyst::Model" => 0,
+    "Catalyst::Plugin::ConfigLoader" => 0,
     "Catalyst::View" => 0,
     "CatalystX::InjectComponent" => 0,
     "Moose" => 0,
@@ -40,7 +41,7 @@ my %WriteMakefileArgs = (
     "MooseX::Types::Moose" => 0,
     "namespace::autoclean" => 0
   },
-  "VERSION" => "0.1_01",
+  "VERSION" => "0.1_02",
   "test" => {
     "TESTS" => "t/*.t"
   }
