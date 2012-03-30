@@ -1,6 +1,6 @@
 package CatalystX::ComponentsFromConfig::ViewPlugin;
 {
-  $CatalystX::ComponentsFromConfig::ViewPlugin::VERSION = '1.0';
+  $CatalystX::ComponentsFromConfig::ViewPlugin::VERSION = '1.001';
 }
 {
   $CatalystX::ComponentsFromConfig::ViewPlugin::DIST = 'CatalystX-ComponentsFromConfig';
@@ -26,7 +26,7 @@ CatalystX::ComponentsFromConfig::ViewPlugin - plugin to create Views from config
 
 =head1 VERSION
 
-version 1.0
+version 1.001
 
 =head1 SYNOPSIS
 
@@ -69,10 +69,25 @@ them in the configuration.
   </views_from_config>
 
 The default C<base_class> is
-C<CatalystX::ComponentsFromConfig::ViewAdaptor>, buty you can specify
+C<CatalystX::ComponentsFromConfig::ViewAdaptor>, but you can specify
 whatever adaptor you want. Of course, you have to make sure that the
 view-specific configuration block is in the format that your adaptor
 expects.
+
+A useful example is when you want to use L<Catalyst::View::TT>:
+
+ <View::Template>
+  base_class Catalyst::View::TT
+  INCLUDE_PATH __path_to('root/src')__
+  INCLUDE_PATH __path_to('root/lib')__
+  TEMPLATE_EXTENSION .tt
+  CATALYST_VAR Catalyst
+  TIMER 0
+ </View::Template>
+
+Note that, since we're not using
+L<CatalystX::ComponentsFromConfig::ViewAdaptor>, the way you pass the
+various parameters is different than what is shown at the top.
 
 =head1 AUTHORS
 
