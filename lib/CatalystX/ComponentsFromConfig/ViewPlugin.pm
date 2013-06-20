@@ -1,6 +1,6 @@
 package CatalystX::ComponentsFromConfig::ViewPlugin;
 {
-  $CatalystX::ComponentsFromConfig::ViewPlugin::VERSION = '1.001';
+  $CatalystX::ComponentsFromConfig::ViewPlugin::VERSION = '1.002';
 }
 {
   $CatalystX::ComponentsFromConfig::ViewPlugin::DIST = 'CatalystX-ComponentsFromConfig';
@@ -16,6 +16,7 @@ with 'CatalystX::ComponentsFromConfig::Role::PluginRole'
 1;
 
 __END__
+
 =pod
 
 =encoding utf-8
@@ -26,7 +27,7 @@ CatalystX::ComponentsFromConfig::ViewPlugin - plugin to create Views from config
 
 =head1 VERSION
 
-version 1.001
+version 1.002
 
 =head1 SYNOPSIS
 
@@ -111,4 +112,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-

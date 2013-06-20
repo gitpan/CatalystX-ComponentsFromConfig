@@ -1,6 +1,6 @@
 package CatalystX::ComponentsFromConfig::ModelPlugin;
 {
-  $CatalystX::ComponentsFromConfig::ModelPlugin::VERSION = '1.001';
+  $CatalystX::ComponentsFromConfig::ModelPlugin::VERSION = '1.002';
 }
 {
   $CatalystX::ComponentsFromConfig::ModelPlugin::DIST = 'CatalystX-ComponentsFromConfig';
@@ -16,6 +16,7 @@ with 'CatalystX::ComponentsFromConfig::Role::PluginRole'
 1;
 
 __END__
+
 =pod
 
 =encoding utf-8
@@ -26,7 +27,7 @@ CatalystX::ComponentsFromConfig::ModelPlugin - plugin to create Models from conf
 
 =head1 VERSION
 
-version 1.001
+version 1.002
 
 =head1 SYNOPSIS
 
@@ -110,4 +111,3 @@ This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
 =cut
-
