@@ -1,7 +1,5 @@
 package CatalystX::ComponentsFromConfig;
-{
-  $CatalystX::ComponentsFromConfig::VERSION = '1.004';
-}
+$CatalystX::ComponentsFromConfig::VERSION = '1.005';
 {
   $CatalystX::ComponentsFromConfig::DIST = 'CatalystX-ComponentsFromConfig';
 }
@@ -23,7 +21,7 @@ CatalystX::ComponentsFromConfig - create models / views at load time
 
 =head1 VERSION
 
-version 1.004
+version 1.005
 
 =head1 DESCRIPTION
 

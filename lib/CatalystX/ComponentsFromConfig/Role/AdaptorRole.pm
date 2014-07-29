@@ -1,7 +1,5 @@
 package CatalystX::ComponentsFromConfig::Role::AdaptorRole;
-{
-  $CatalystX::ComponentsFromConfig::Role::AdaptorRole::VERSION = '1.004';
-}
+$CatalystX::ComponentsFromConfig::Role::AdaptorRole::VERSION = '1.005';
 {
   $CatalystX::ComponentsFromConfig::Role::AdaptorRole::DIST = 'CatalystX-ComponentsFromConfig';
 }
@@ -108,7 +106,7 @@ CatalystX::ComponentsFromConfig::Role::AdaptorRole - parameterised role for trai
 
 =head1 VERSION
 
-version 1.004
+version 1.005
 
 =head1 DESCRIPTION
 
