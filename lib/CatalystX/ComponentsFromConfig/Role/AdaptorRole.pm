@@ -1,5 +1,5 @@
 package CatalystX::ComponentsFromConfig::Role::AdaptorRole;
-$CatalystX::ComponentsFromConfig::Role::AdaptorRole::VERSION = '1.005';
+$CatalystX::ComponentsFromConfig::Role::AdaptorRole::VERSION = '1.006';
 {
   $CatalystX::ComponentsFromConfig::Role::AdaptorRole::DIST = 'CatalystX-ComponentsFromConfig';
 }
@@ -19,6 +19,14 @@ parameter component_type => (
     required => 1,
 );
 
+sub _format_args {
+    my ($format, $args) = @_;
+
+    return $format eq 'hashref' ? $args
+        : $format eq 'list' ? %{$args}
+        : die "Invalid args_format '$format'";
+}
+
 role {
     my $params = shift;
     my $type = ucfirst($params->component_type);
@@ -36,6 +44,13 @@ role {
         isa => HashRef,
         is => 'ro',
         default => sub { {} },
+    );
+
+
+    has args_format => (
+        isa => enum([qw(hashref list)]),
+        is => 'ro',
+        default => 'hashref',
     );
 
 
@@ -83,12 +98,12 @@ role {
                     },
                 );
             }
-            return $other_class->new_with_traits({
+            return $other_class->new_with_traits(_format_args $self->args_format, {
                 traits => $self->traits,
                 %{ $self->args },
             });
         }
-        return $other_class->new($self->args);
+        return $other_class->new(_format_args $self->args_format, $self->args);
     };
 };
 
@@ -106,7 +121,7 @@ CatalystX::ComponentsFromConfig::Role::AdaptorRole - parameterised role for trai
 
 =head1 VERSION
 
-version 1.005
+version 1.006
 
 =head1 DESCRIPTION
 
@@ -125,7 +140,24 @@ The name of the class to adapt.
 
 =head2 C<args>
 
-Hashref to pass to the constructor of the adapted class.
+Hashref of arguments to pass to the constructor of the adapted class.
+
+=head2 C<args_format>
+
+String indicating how to pass the constructor arguments to the adapted
+class. One of:
+
+=over
+
+=item C<hashref> (default)
+
+Pass the arguments as a hash reference.
+
+=item C<list>
+
+Flatten the arugments into a key/value list.
+
+=back
 
 =head2 C<traits>
 
